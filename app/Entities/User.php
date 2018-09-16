@@ -38,6 +38,14 @@ class User extends Authenticatable
     ];
 
     /**
+     * Get the phone record associated with the user.
+     */
+    public function group()
+    {
+        return $this->hasOne('App\Entities\Group', 'id', 'group_id');
+    }
+
+    /**
      * Method create new User
      *
      * @param $email
@@ -47,14 +55,14 @@ class User extends Authenticatable
      * @param $groupId
      * @return User
      */
-    public static function register($email, $lastName, $firstName, $state, $groupId = null): self
+    public static function register($email, $lastName, $firstName, $state, $groupId): self
     {
         return static::create([
             'email'      =>  $email,
             'last_name'  =>  $lastName,
             'first_name' =>  $firstName,
             'state'      =>  $state,
-            'group_id'   =>  1
+            'group_id'   =>  $groupId
         ]);
     }
 }

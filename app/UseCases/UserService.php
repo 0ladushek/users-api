@@ -16,7 +16,8 @@ class UserService
             $request['email'],
             $request['last_name'],
             $request['first_name'],
-            $request['state']
+            $request['state'],
+            $request['group_id']
         );
     }
 

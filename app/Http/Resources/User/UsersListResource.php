@@ -11,8 +11,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property string $email
  * @property string $last_name
  * @property string $first_name
- * @property string $state
- * @property Carbon $creation_date
  * @package App\Http\Resources\User
  */
 class UsersListResource extends JsonResource
@@ -31,9 +29,7 @@ class UsersListResource extends JsonResource
             'name' => [
                 'first' => $this->last_name,
                 'last' => $this->first_name,
-            ],
-            'state' => $this->state,
-            'creation_date' => $this->creation_date
+            ]
         ];
     }
 }

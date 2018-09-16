@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\User;
 
+use App\Entities\Group;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -13,6 +14,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property string $first_name
  * @property string $state
  * @property Carbon $creation_date
+ * @property Group $group
  * @package App\Http\Resources\User
  */
 class UserInfoResource extends JsonResource
@@ -33,7 +35,11 @@ class UserInfoResource extends JsonResource
                 'last' => $this->first_name,
             ],
             'state' => $this->state,
-            'creation_date' => $this->creation_date
+            'creation_date' => $this->creation_date,
+            'group' => [
+                $this->group->id,
+                $this->group->name
+            ]
         ];
     }
 }
