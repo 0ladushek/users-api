@@ -50,9 +50,9 @@ class UserController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show($id)
     {
-        $user = User::findOrFail($request->id);
+        $user = User::findOrFail($id);
         return new UserInfoResource($user);
     }
 
@@ -77,6 +77,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::findOrFail($id)->delete();
+        return response()->json(['Delete' => 'success'], Response::HTTP_OK);
     }
 }

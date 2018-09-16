@@ -19,6 +19,13 @@ Route::group(['namespace' => 'Api'],
             Route::post('/', 'UserController@create');
             Route::get('/{id}', 'UserController@show');
             Route::put('/{id}', 'UserController@update');
+            Route::delete('/{id}', 'UserController@destroy');
+        });
+
+        Route::prefix('groups')->group(function () {
+            Route::get('/', 'GroupController@index');
+            Route::post('/', 'Group@create');
+            Route::put('/{id}', 'Group@update');
         });
     }
 );
