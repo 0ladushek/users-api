@@ -24,8 +24,8 @@ Route::group(['namespace' => 'Api'],
 
         Route::prefix('groups')->group(function () {
             Route::get('/', 'GroupController@index');
-            Route::post('/', 'Group@create');
-            Route::put('/{id}', 'Group@update');
+            Route::post('/', 'GroupController@create');
+            Route::put('/{id}', 'GroupController@update');
         });
     }
 );
