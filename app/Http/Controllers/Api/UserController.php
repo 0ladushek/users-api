@@ -7,7 +7,6 @@ use App\Http\Requests\User\RegisterRequest;
 use App\Http\Resources\User\UserInfoResource;
 use App\Http\Resources\User\UsersListResource;
 use App\UseCases\UserService;
-use Illuminate\Http\Request;
 use App\Entities\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;

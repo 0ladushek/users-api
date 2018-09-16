@@ -32,6 +32,5 @@ class UserTest extends TestCase
         self::assertEquals($user->group_id, $groupId);
 
         self::assertNotEmpty($user->creation_date);
-
     }
 }

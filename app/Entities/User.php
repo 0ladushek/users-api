@@ -19,6 +19,9 @@ class User extends Authenticatable
     const CREATED_AT = 'creation_date';
     const UPDATED_AT = null;
 
+    const STATUS_ACTIVE = 'active';
+    const STATUS_NON_ACTIVE = 'non active';
+
     /**
      * The attributes that are mass assignable.
      *
