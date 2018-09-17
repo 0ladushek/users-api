@@ -28,7 +28,7 @@ class RegisterRequest extends FormRequest
             'first_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'state' => 'required|string|max:15|in:active,non active',
-            'group_id' => 'required|integer'
+            'group_id' => 'required|integer|exists:groups,id'
         ];
     }
 }

@@ -28,7 +28,7 @@ class UpdateRequest extends FormRequest
             'first_name' => 'string|max:255',
             'email' => 'string|email|max:255|unique:users',
             'state' => 'string|max:15|in:active,non active',
-            'group_id' => 'integer'
+            'group_id' => 'integer|exists:groups,id'
         ];
     }
 }
