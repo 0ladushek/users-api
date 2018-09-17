@@ -37,8 +37,8 @@ class UserInfoResource extends JsonResource
             'state' => $this->state,
             'creation_date' => $this->creation_date,
             'group' => [
-                $this->group->id,
-                $this->group->name
+                $this->group->id ?? $this->group_id,
+                $this->group->name ?? null
             ]
         ];
     }

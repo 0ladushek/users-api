@@ -24,6 +24,6 @@ class UserService
     public function update($id, UpdateRequest $request): void
     {
         $user = User::findOrFail($id);
-        $user->update($request->only(['last_name', 'first_name', 'email', 'state']));
+        $user->update($request->all());
     }
 }
