@@ -19,6 +19,5 @@ $factory->define(User::class, function (Faker $faker) {
         'last_name' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,
         'state' => $faker->randomElement([User::STATUS_ACTIVE,  User::STATUS_NON_ACTIVE]),
-        'group_id' => $faker->numberBetween(0, 999)
     ];
 });
