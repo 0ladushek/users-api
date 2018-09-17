@@ -13,7 +13,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property string $first_name
  * @package App\Http\Resources\User
  */
-class UsersListResource extends JsonResource
+class UserListResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use \App\Http\Requests\User\UpdateRequest;
 use App\Http\Requests\User\RegisterRequest;
 use App\Http\Resources\User\UserInfoResource;
-use App\Http\Resources\User\UsersListResource;
+use App\Http\Resources\User\UserListResource;
 use App\UseCases\UserService;
 use App\Entities\User;
 use App\Http\Controllers\Controller;
@@ -28,7 +28,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return UsersListResource::collection(User::all());
+        return UserListResource::collection(User::all());
     }
 
     /**
@@ -39,8 +39,7 @@ class UserController extends Controller
     public function create(RegisterRequest $request)
     {
         $this->service->register($request);
-
-        return response()->json(['Registration' => 'success'], Response::HTTP_CREATED);
+        return response()->json([], Response::HTTP_CREATED);
     }
 
     /**
@@ -65,7 +64,7 @@ class UserController extends Controller
     public function update(UpdateRequest $request, $id)
     {
         $this->service->update($id, $request);
-        return response()->json(['Update' => 'success'], Response::HTTP_OK);
+        return response()->json([], Response::HTTP_OK);
     }
 
     /**
@@ -76,7 +75,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        User::findOrFail($id)->delete();
-        return response()->json(['Delete' => 'success'], Response::HTTP_OK);
+        $this->service->delete($id);
+        return response()->json([], Response::HTTP_OK);
     }
 }

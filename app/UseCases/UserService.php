@@ -12,18 +12,18 @@ class UserService
 {
     public function register(RegisterRequest $request): void
     {
-        User::register(
-            $request['email'],
-            $request['last_name'],
-            $request['first_name'],
-            $request['state'],
-            $request['group_id']
-        );
+        User::create($request->all());
     }
 
     public function update($id, UpdateRequest $request): void
     {
         $user = User::findOrFail($id);
         $user->update($request->all());
+    }
+
+    public function delete($id): void
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Entities\User;
 
 class UpdateRequest extends FormRequest
 {
@@ -27,7 +28,7 @@ class UpdateRequest extends FormRequest
             'last_name' => 'string|max:255',
             'first_name' => 'string|max:255',
             'email' => 'string|email|max:255|unique:users',
-            'state' => 'string|max:15|in:active,non active',
+            'state' => 'string|max:15|in:'.User::STATUS_ACTIVE.','.User::STATUS_NON_ACTIVE,
             'group_id' => 'integer|exists:groups,id'
         ];
     }

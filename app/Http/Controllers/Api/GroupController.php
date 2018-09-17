@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Resources\Group\GroupListResource;
 use App\UseCases\GroupService;
 use App\Http\Requests\Group\CreateRequest;
 use App\Http\Controllers\Controller;
@@ -25,7 +26,7 @@ class GroupController extends Controller
      */
     public function index()
     {
-        return Group::all();
+        return GroupListResource::collection(Group::all());
     }
 
     /**
@@ -36,8 +37,7 @@ class GroupController extends Controller
     public function create(CreateRequest $request)
     {
         $this->service->create($request);
-
-        return response()->json(['Create' => 'success'], Response::HTTP_CREATED);
+        return response()->json([], Response::HTTP_CREATED);
     }
 
     /**
@@ -50,7 +50,7 @@ class GroupController extends Controller
     public function update(UpdateRequest $request, $id)
     {
         $this->service->update($id, $request);
-        return response()->json(['Update' => 'success'], Response::HTTP_OK);
+        return response()->json([], Response::HTTP_OK);
     }
 
 }

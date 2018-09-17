@@ -14,6 +14,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property string $first_name
  * @property string $state
  * @property Carbon $creation_date
+ * @property int $group_id
  * @property Group $group
  * @package App\Http\Resources\User
  */
@@ -37,8 +38,8 @@ class UserInfoResource extends JsonResource
             'state' => $this->state,
             'creation_date' => $this->creation_date,
             'group' => [
-                $this->group->id ?? $this->group_id,
-                $this->group->name ?? null
+                $this->group_id,
+                $this->group->name ?? 'unknown'
             ]
         ];
     }
